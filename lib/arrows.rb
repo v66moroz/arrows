@@ -17,11 +17,11 @@ class << self
 
   # Compositions
 
-  # comp(:a, :b)
+  # pipe(:a, :b)
   # =>
   # ->(x) { x.a.b }
   #
-  def comp(*ps)
+  def pipe(*ps)
     ps = ps.map(&:to_proc)
     ->(x; v) do
       v = x
@@ -32,11 +32,11 @@ class << self
     end
   end
 
-  # ucomp(:a, :b)
+  # upipe(:a, :b)
   # =>
   # ->(x) { x.a.b }
   #
-  def ucomp(*ps)
+  def upipe(*ps)
     ps = ps.map(&:to_proc)
     ->(x; v) do
       v = x
