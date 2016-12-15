@@ -21,12 +21,27 @@ class << self
   # =>
   # ->(x) { x.a.b }
   #
-  def comp(p, *ps)
-    p = p.to_proc
+  def comp(*ps)
     ps = ps.map(&:to_proc)
     ->(x; v) do
-      v = p[x]
+      v = x
       ps.each do |p|
+        v = p[v]
+      end
+      v
+    end
+  end
+
+  # ucomp(:a, :b)
+  # =>
+  # ->(x) { x.a.b }
+  #
+  def ucomp(*ps)
+    ps = ps.map(&:to_proc)
+    ->(x; v) do
+      v = x
+      ps.each do |p|
+        break if v.nil?
         v = p[v]
       end
       v
