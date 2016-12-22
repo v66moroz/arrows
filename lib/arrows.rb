@@ -1,6 +1,6 @@
 require_relative "arrows/version"
 
-module A
+module Arrows
 class << self
 
   # Unit
