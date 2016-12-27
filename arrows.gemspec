@@ -5,7 +5,7 @@ require 'arrows/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "arrows"
-  spec.version       = A::VERSION
+  spec.version       = Arrows::VERSION
   spec.authors       = ["Victor Moroz"]
   spec.email         = ["v66moroz@gmail.com"]
   spec.summary       = %q{Arrows}
